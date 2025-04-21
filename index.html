@@ -11,22 +11,22 @@
       box-sizing: border-box;
     }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e6f2ff;
       color: #333;
     }
     header {
-      background-color: #0077cc;
+      background-color: #4da6ff;
       color: white;
-      padding: 20px;
+      padding: 30px 20px;
       text-align: center;
     }
     header h1 {
       margin-bottom: 10px;
+      font-size: 2em;
     }
     nav {
-      background-color: #005fa3;
+      background-color: #3399ff;
       padding: 10px;
       text-align: center;
     }
@@ -37,38 +37,47 @@
       font-weight: bold;
     }
     section {
-      padding: 20px;
+      padding: 30px 20px;
       max-width: 1000px;
       margin: auto;
     }
-    .services, .about, .contact {
-      margin-bottom: 40px;
-    }
     .service-item {
       background: white;
-      padding: 15px;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .service-item img {
+      width: 100px;
+      height: auto;
       border-radius: 8px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .button {
       display: inline-block;
       padding: 12px 20px;
-      background-color: #0077cc;
+      background-color: #3399ff;
       color: white;
       text-decoration: none;
       border-radius: 5px;
-      margin-top: 15px;
+      margin-top: 20px;
     }
     footer {
       text-align: center;
-      background-color: #ddd;
+      background-color: #b3daff;
       padding: 20px;
+      margin-top: 30px;
     }
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 10px 0;
+    @media (max-width: 700px) {
+      .service-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .service-item img {
+        width: 100%;
       }
     }
   </style>
@@ -77,7 +86,7 @@
 
   <header>
     <h1>Ремонт телефонов</h1>
-    <p>Профессиональный ремонт смартфонов и планшетов</p>
+    <p>Профессиональный ремонт смартфонов, планшетов и гаджетов</p>
     <p><strong>Позвоните нам:</strong> <a href="tel:+48573682178" style="color: #fff;">+48 573 682 178</a></p>
   </header>
 
@@ -87,44 +96,55 @@
     <a href="#contact">Контакты</a>
   </nav>
 
-  <section id="services" class="services">
+  <section id="services">
     <h2>Наши услуги</h2>
-    
+
     <div class="service-item">
-      <h3>Замена экрана</h3>
-      <p>Разбит или не работает экран? Мы быстро и качественно заменим его на оригинальный или совместимый.</p>
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920083.png" alt="Экран">
+      <div>
+        <h3>Замена экрана</h3>
+        <p>Разбит экран? Мы установим оригинальную или аналоговую матрицу в течение 1 часа.</p>
+      </div>
     </div>
 
     <div class="service-item">
-      <h3>Ремонт разъёма зарядки</h3>
-      <p>Проблемы с зарядкой устройства? Мы устраним неисправности порта USB или Lightning.</p>
+      <img src="https://cdn-icons-png.flaticon.com/512/3523/3523063.png" alt="Зарядка">
+      <div>
+        <h3>Ремонт разъёма зарядки</h3>
+        <p>Если смартфон не заряжается — мы заменим или почистим разъём быстро и аккуратно.</p>
+      </div>
     </div>
 
     <div class="service-item">
-      <h3>Замена батареи</h3>
-      <p>Быстро садится батарея? Мы установим новую с гарантией.</p>
+      <img src="https://cdn-icons-png.flaticon.com/512/2204/2204346.png" alt="Батарея">
+      <div>
+        <h3>Замена батареи</h3>
+        <p>Телефон быстро разряжается? Новая батарея — решение! Подберем оригинальную или проверенную аналоговую.</p>
+      </div>
     </div>
 
     <div class="service-item">
-      <h3>Ремонт после воды</h3>
-      <p>Ваш смартфон попал в воду? Мы проведем полную диагностику и восстановление устройства.</p>
+      <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Вода">
+      <div>
+        <h3>Ремонт после воды</h3>
+        <p>Не работает после влаги или воды? Выполним чистку и диагностику, восстановим плату.</p>
+      </div>
     </div>
 
     <a class="button" href="tel:+48573682178">Позвонить сейчас</a>
   </section>
 
-  <section id="about" class="about">
+  <section id="about">
     <h2>Почему выбирают нас</h2>
     <ul>
       <li>Опыт более 5 лет</li>
       <li>Оригинальные запчасти</li>
-      <li>Быстрый ремонт — от 30 минут</li>
       <li>Гарантия до 12 месяцев</li>
-      <li>Честные цены без скрытых доплат</li>
+      <li>Честные цены и бесплатная диагностика</li>
     </ul>
   </section>
 
-  <section id="contact" class="contact">
+  <section id="contact">
     <h2>Контакты</h2>
     <p><strong>Телефон:</strong> <a href="tel:+48573682178">+48 573 682 178</a></p>
     <p><strong>Адрес:</strong> Варшава, ул. Примерная 10</p>
