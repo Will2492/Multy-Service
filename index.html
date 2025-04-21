@@ -1,87 +1,139 @@
-# Games-<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ремонт телефонов</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
       color: #333;
     }
     header {
-      background: #1e88e5;
+      background-color: #0077cc;
       color: white;
       padding: 20px;
       text-align: center;
     }
     header h1 {
-      margin: 0;
+      margin-bottom: 10px;
     }
-    .phone {
-      font-size: 1.2em;
-      margin-top: 5px;
+    nav {
+      background-color: #005fa3;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
     }
     section {
       padding: 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
+    }
+    .services, .about, .contact {
+      margin-bottom: 40px;
+    }
+    .service-item {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .button {
       display: inline-block;
       padding: 12px 20px;
-      background: #1e88e5;
+      background-color: #0077cc;
       color: white;
       text-decoration: none;
-      border-radius: 4px;
-      margin-top: 10px;
+      border-radius: 5px;
+      margin-top: 15px;
     }
     footer {
       text-align: center;
-      padding: 10px;
-      background: #ccc;
+      background-color: #ddd;
+      padding: 20px;
     }
     @media (max-width: 600px) {
-      header, section {
-        padding: 15px;
-      }
-      .button {
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
+      nav a {
+        display: block;
+        margin: 10px 0;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Ремонт телефонов</h1>
-    <div class="phone">Позвоните: <a href="tel:+48573682178" style="color:white;">+48 573 682 178</a></div>
+    <p>Профессиональный ремонт смартфонов и планшетов</p>
+    <p><strong>Позвоните нам:</strong> <a href="tel:+48573682178" style="color: #fff;">+48 573 682 178</a></p>
   </header>
 
-  <section>
-    <h2>Наши услуги</h2>
-    <ul>
-      <li>Замена экрана</li>
-      <li>Ремонт зарядного гнезда</li>
-      <li>Замена аккумулятора</li>
-      <li>Восстановление после воды</li>
-    </ul>
+  <nav>
+    <a href="#services">Услуги</a>
+    <a href="#about">О нас</a>
+    <a href="#contact">Контакты</a>
+  </nav>
 
-    <h2>Почему мы?</h2>
-    <ul>
-      <li>Быстро и качественно</li>
-      <li>Оригинальные запчасти</li>
-      <li>Гарантия на ремонт</li>
-    </ul>
+  <section id="services" class="services">
+    <h2>Наши услуги</h2>
+    
+    <div class="service-item">
+      <h3>Замена экрана</h3>
+      <p>Разбит или не работает экран? Мы быстро и качественно заменим его на оригинальный или совместимый.</p>
+    </div>
+
+    <div class="service-item">
+      <h3>Ремонт разъёма зарядки</h3>
+      <p>Проблемы с зарядкой устройства? Мы устраним неисправности порта USB или Lightning.</p>
+    </div>
+
+    <div class="service-item">
+      <h3>Замена батареи</h3>
+      <p>Быстро садится батарея? Мы установим новую с гарантией.</p>
+    </div>
+
+    <div class="service-item">
+      <h3>Ремонт после воды</h3>
+      <p>Ваш смартфон попал в воду? Мы проведем полную диагностику и восстановление устройства.</p>
+    </div>
 
     <a class="button" href="tel:+48573682178">Позвонить сейчас</a>
   </section>
 
+  <section id="about" class="about">
+    <h2>Почему выбирают нас</h2>
+    <ul>
+      <li>Опыт более 5 лет</li>
+      <li>Оригинальные запчасти</li>
+      <li>Быстрый ремонт — от 30 минут</li>
+      <li>Гарантия до 12 месяцев</li>
+      <li>Честные цены без скрытых доплат</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Контакты</h2>
+    <p><strong>Телефон:</strong> <a href="tel:+48573682178">+48 573 682 178</a></p>
+    <p><strong>Адрес:</strong> Варшава, ул. Примерная 10</p>
+    <p><strong>Часы работы:</strong> Пн–Сб: 10:00–19:00</p>
+  </section>
+
   <footer>
-    &copy; 2025 Ремонт телефонов
+    &copy; 2025 Ремонт телефонов | Все права защищены
   </footer>
+
 </body>
 </html>
