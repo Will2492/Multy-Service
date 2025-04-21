@@ -48,6 +48,56 @@
       color: #2980b9;
       margin-bottom: 15px;
     }
+    .contact {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #1abc9c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      margin-top: 30px;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 28px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      text-align: center;
+      z-index: 1000;
+    }
+    .whatsapp:hover {
+      background: #20b858;
+    }
     footer {
       text-align: center;
       padding: 20px;
@@ -89,6 +139,26 @@
     <p>Szybka wymiana pękniętej lub rozbitej szybki w telefonie</p>
   </div>
 </section>
+
+<section class="contact">
+  <h2>Skontaktuj się z nami</h2>
+  <form action="#" method="POST">
+    <input type="text" name="name" placeholder="Imię" required>
+    <input type="tel" name="phone" placeholder="Numer telefonu" required>
+    <textarea name="message" placeholder="Wiadomość" rows="4" required></textarea>
+    <button type="submit">Wyślij</button>
+  </form>
+
+  <!-- Google Maps iframe (замени адрес на свой) -->
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.7516012597776!2d21.01222831579957!3d52.229675979757845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669fa2ff4f%3A0x43d13d4f9a6b0a4f!2sWarszawa%2C%20Polska!5e0!3m2!1spl!2spl!4v1616611729935!5m2!1spl!2spl" 
+    allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+<!-- WhatsApp Floating Button -->
+<a class="whatsapp" href="https://wa.me/48573682168" target="_blank" title="Napisz do nas na WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 <footer>
   <p>&copy; 2025 Serwis Urządzeń Mobilnych. Wszelkie prawa zastrzeżone.</p>
