@@ -14,111 +14,155 @@
       color: #333;
     }
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       background: #2c3e50;
+      color: #fff;
       padding: 10px 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       flex-wrap: wrap;
     }
     .logo {
       font-size: 24px;
-      color: white;
       font-weight: bold;
     }
     .phone-number {
-      font-size: 18px;
+      font-size: 16px;
+    }
+    .phone-number a {
       color: #1abc9c;
-      text-align: center;
-      flex: 1;
+      text-decoration: none;
     }
-    .menu {
-      position: relative;
+    nav.nav-links {
+      display: flex;
+      gap: 20px;
     }
-    .menu-button {
+    nav.nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    nav.nav-links a:hover {
+      color: #1abc9c;
+    }
+    .menu-toggle {
+      display: none;
       background: none;
       border: none;
+      font-size: 28px;
       color: white;
-      font-size: 24px;
       cursor: pointer;
     }
-    nav {
-      display: none;
-      flex-direction: column;
-      background: #2c3e50;
-      position: absolute;
-      right: 0;
-      top: 50px;
-      z-index: 1000;
-    }
-    nav a {
-      padding: 10px 20px;
-      color: white;
-      text-decoration: none;
-      border-top: 1px solid #1abc9c;
-    }
-    nav a:hover {
-      background: #1abc9c;
-    }
-    .show {
-      display: flex;
-    }
+
     section {
       padding: 60px 20px;
       text-align: center;
+    }
+    .services {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
       background: #fff;
     }
-    .services, .prices, .reviews {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .service, .price-item, .review {
+    .service {
       background: #ecf0f1;
-      padding: 20px;
+      margin: 15px;
+      padding: 30px;
       border-radius: 8px;
+      text-align: center;
       width: 250px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
     }
-    .service i, .review i {
+    .service i {
       font-size: 50px;
-      margin-bottom: 10px;
       color: #2980b9;
+      margin-bottom: 15px;
     }
-    .price-title {
-      font-size: 24px;
-      font-weight: bold;
+
+    .pricing {
+      background: #fff;
+      padding: 40px 20px;
+    }
+    .pricing h2 {
+      margin-bottom: 30px;
+    }
+    .price-list {
+      max-width: 500px;
+      margin: auto;
+      text-align: left;
+    }
+    .price-list ul {
+      list-style: none;
+      padding: 0;
+    }
+    .price-list li {
+      background: #ecf0f1;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .reviews {
+      background: #f9f9f9;
+      padding: 40px 20px;
+    }
+    .review {
+      background: #fff;
+      padding: 20px;
+      margin: 15px auto;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .review img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
       margin-bottom: 10px;
-      text-align: center;
     }
     iframe {
       width: 100%;
       height: 300px;
       border: 0;
+      margin-top: 30px;
     }
+
     footer {
-      background: #2c3e50;
-      color: white;
       text-align: center;
       padding: 20px;
+      background: #2c3e50;
+      color: #fff;
     }
-    .review img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 20px;
+      text-decoration: none;
     }
-    @media (min-width: 768px) {
-      nav {
-        display: flex;
-        position: static;
-        flex-direction: row;
-        background: none;
-      }
-      .menu-button {
+    footer a:hover {
+      color: #1abc9c;
+    }
+
+    @media (max-width: 768px) {
+      nav.nav-links {
         display: none;
+        flex-direction: column;
+        background: #2c3e50;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      nav.nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
       }
     }
   </style>
@@ -127,100 +171,91 @@
 
 <header>
   <div class="logo">eZbita.pl</div>
-  <div class="phone-number"><i class="fas fa-phone"></i> +48 573 682 168</div>
-  <div class="menu">
-    <button class="menu-button" onclick="document.querySelector('nav').classList.toggle('show')">
-      <i class="fas fa-bars"></i>
-    </button>
-    <nav>
-      <a href="#about">O nas</a>
-      <a href="#services">Usługi</a>
-      <a href="#prices">Cennik</a>
-      <a href="#reviews">Opinie</a>
-    </nav>
+  <div class="phone-number">
+    <i class="fas fa-phone"></i> <a href="tel:+48573682168">+48 573 682 168</a>
   </div>
+  <button class="menu-toggle" aria-label="Otwórz menu">&#9776;</button>
+  <nav class="nav-links">
+    <a href="#about">O nas</a>
+    <a href="#services">Usługi</a>
+    <a href="#pricing">Cennik</a>
+    <a href="#reviews">Opinie</a>
+  </nav>
 </header>
 
 <section id="about">
   <h2>O nas</h2>
-  <p>Mamy ponad 10 lat doświadczenia w naprawie telefonów komórkowych. Szybko, profesjonalnie i z gwarancją!</p>
+  <p>Już ponad 10 lat profesjonalnie naprawiamy telefony, tablety i laptopy. Gwarantujemy szybką i rzetelną obsługę!</p>
 </section>
 
-<section id="services">
-  <h2>Usługi</h2>
-  <div class="services">
-    <div class="service" onclick="document.getElementById('prices').scrollIntoView({ behavior: 'smooth' });">
-      <i class="fas fa-mobile-alt"></i>
-      <h3>Naprawa telefonów</h3>
-      <p>Wymiana ekranu, baterii, gniazd i wiele więcej</p>
-    </div>
-    <div class="service" onclick="document.getElementById('prices').scrollIntoView({ behavior: 'smooth' });">
-      <i class="fas fa-tablet-alt"></i>
-      <h3>Naprawa tabletów</h3>
-      <p>Profesjonalna naprawa wszystkich modeli</p>
-    </div>
-    <div class="service" onclick="document.getElementById('prices').scrollIntoView({ behavior: 'smooth' });">
-      <i class="fas fa-laptop"></i>
-      <h3>Naprawa laptopów</h3>
-      <p>Diagnostyka, czyszczenie, wymiana podzespołów</p>
-    </div>
+<section id="services" class="services">
+  <div class="service" onclick="location.href='#pricing'">
+    <i class="fas fa-mobile-alt"></i>
+    <h3>Naprawa telefonów</h3>
+  </div>
+  <div class="service" onclick="location.href='#pricing'">
+    <i class="fas fa-tablet-alt"></i>
+    <h3>Naprawa tabletów</h3>
+  </div>
+  <div class="service" onclick="location.href='#pricing'">
+    <i class="fas fa-laptop"></i>
+    <h3>Naprawa laptopów</h3>
+  </div>
+  <div class="service" onclick="location.href='#pricing'">
+    <i class="fas fa-tools"></i>
+    <h3>Wymiana szybki</h3>
   </div>
 </section>
 
-<section id="prices">
-  <div class="price-title">Cennik</div>
-  <div class="prices">
-    <div class="price-item">
-      Wymiana szybki: od 150 zł
-    </div>
-    <div class="price-item">
-      Wymiana baterii: od 120 zł
-    </div>
-    <div class="price-item">
-      Wymiana wyświetlacza: od 100 zł
-    </div>
-    <div class="price-item">
-      Wymiana złącza ładowania: od 50 zł
-    </div>
-    <div class="price-item">
-      Wymiana głośnika / mikrofonu: od 100 zł
-    </div>
-    <div class="price-item">
-      Czyszczenie po zalaniu: od 0 zł
-    </div>
+<section id="pricing" class="pricing">
+  <h2>Cennik</h2>
+  <div class="price-list">
+    <ul>
+      <li>Wymiana szybki: od 150 zł</li>
+      <li>Wymiana baterii: od 120 zł</li>
+      <li>Wymiana wyświetlacza: od 100 zł</li>
+      <li>Wymiana gniazda ładowania: od 50 zł</li>
+      <li>Wymiana głośnika / mikrofonu: od 100 zł</li>
+      <li>Czyszczenie po zalaniu: od 0 zł</li>
+    </ul>
   </div>
 </section>
 
-<section id="reviews">
+<section id="reviews" class="reviews">
   <h2>Opinie klientów</h2>
-  <div class="reviews">
-    <div class="review">
-      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Klient 1" />
-      <p>⭐⭐⭐⭐⭐ Świetna obsługa! Telefon naprawiony w godzinę!</p>
-    </div>
-    <div class="review">
-      <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Klient 2" />
-      <p>⭐⭐⭐⭐⭐ Bardzo polecam, szybko i profesjonalnie!</p>
-    </div>
-    <div class="review">
-      <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Klient 3" />
-      <p>⭐⭐⭐⭐⭐ Ekspresowa naprawa i świetna cena!</p>
-    </div>
+  <div class="review">
+    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Klient">
+    <p>⭐⭐⭐⭐⭐ Świetny serwis! Szybka naprawa i bardzo miła obsługa.</p>
+  </div>
+  <div class="review">
+    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Klientka">
+    <p>⭐⭐⭐⭐⭐ Polecam każdemu! Telefon wygląda jak nowy.</p>
+  </div>
+  <div class="review">
+    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Klient">
+    <p>⭐⭐⭐⭐⭐ Profesjonalne podejście do klienta i szybka realizacja!</p>
   </div>
 </section>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2442.1533495841557!2d21.004727515804386!3d52.175606979748085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4719315f3c8e5c85%3A0x38cc54f2c3eabb1c!2sOrzycka%206%2C%2002-695%20Warszawa!5e0!3m2!1spl!2spl!4v1714245580005!5m2!1spl!2spl" allowfullscreen="" loading="lazy"></iframe>
+<iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.3443084752265!2d21.005353315798325!3d52.17654937974062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471933c45c58d5b3%3A0x73041a14e2a83ec1!2sOrzycka%206%2C%2002-695%20Warszawa%2C%20Polska!5e0!3m2!1spl!2spl!4v1714223919032!5m2!1spl!2spl"
+  allowfullscreen="" loading="lazy"></iframe>
 
 <footer>
   <p>&copy; 2025 eZbita.pl – Wszystkie prawa zastrzeżone.</p>
+  <div>
+    <a href="https://instagram.com/ezbita" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://t.me/ezbita" target="_blank"><i class="fab fa-telegram"></i></a>
+    <a href="https://wa.me/48573682168" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
 </footer>
 
 <script>
-  const menuButton = document.querySelector('.menu-button');
-  const nav = document.querySelector('nav');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
 
-  menuButton.addEventListener('click', () => {
-    nav.classList.toggle('show');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
   });
 </script>
 
