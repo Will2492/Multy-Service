@@ -1,63 +1,56 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>eZbita.pl – Serwis urządzeń mobilnych</title>
-  <meta name="description" content="eZbita.pl – Profesjonalny serwis telefonów i laptopów w Warszawie. Naprawa szybki, baterii i więcej. Szybko, solidnie i z gwarancją!">
-  <meta name="keywords" content="naprawa telefonów Warszawa, serwis telefonów, wymiana szybki, naprawa baterii, serwis laptopów">
-  <meta name="author" content="eZbita.pl">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eZbita.pl – Naprawa urządzeń mobilnych Warszawa</title>
+  <meta name="description" content="eZbita.pl - Profesjonalna naprawa telefonów, tabletów i laptopów w Warszawie. Szybko, solidnie i z gwarancją!">
+  <meta name="keywords" content="naprawa telefonów Warszawa, serwis smartfonów, wymiana szybki, naprawa laptopów, serwis tabletów">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" async>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     html {
       scroll-behavior: smooth;
     }
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
       background: #f5f5f5;
       color: #333;
     }
-    nav {
+    header {
       background: #2c3e50;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    nav .logo {
       color: #fff;
-      font-size: 24px;
-      text-decoration: none;
-      font-weight: bold;
+      padding: 20px;
+      text-align: center;
+      position: relative;
     }
-    nav ul {
-      list-style: none;
+    nav {
       display: flex;
-      margin: 0;
-      padding: 0;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
     }
-    nav ul li {
-      margin-left: 20px;
-    }
-    nav ul li a {
+    nav a {
       color: #fff;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 18px;
       transition: color 0.3s;
     }
-    nav ul li a:hover {
+    nav a:hover {
       color: #1abc9c;
     }
-    header {
-      background: #2980b9;
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
+    .burger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
     .phone-number {
       margin-top: 10px;
@@ -70,30 +63,36 @@
     section {
       padding: 60px 20px;
       text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
     }
-    .services {
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .services, .cennik, .opinie {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       background: #fff;
     }
-    .service {
+    .service, .price-item, .opinia {
       background: #ecf0f1;
       margin: 15px;
       padding: 30px;
       border-radius: 8px;
       width: 250px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .service:hover, .price-item:hover, .opinia:hover {
+      transform: translateY(-5px);
     }
     .service i {
       font-size: 50px;
       color: #2980b9;
       margin-bottom: 15px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      font-size: 18px;
     }
     iframe {
       width: 100%;
@@ -118,10 +117,10 @@
       background: #20b858;
     }
     footer {
-      text-align: center;
-      padding: 20px;
       background: #2c3e50;
       color: #fff;
+      text-align: center;
+      padding: 20px;
     }
     footer a {
       color: #fff;
@@ -132,90 +131,104 @@
     footer a:hover {
       color: #1abc9c;
     }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #34495e;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+      }
+      nav.active {
+        display: flex;
+      }
+      .burger {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="#" class="logo">eZbita.pl</a>
-  <ul>
-    <li><a href="#about">O nas</a></li>
-    <li><a href="#services">Usługi</a></li>
-    <li><a href="#reviews">Opinie klientów</a></li>
-    <li><a href="#pricing">Cennik</a></li>
-    <li><a href="#contact">Kontakt</a></li>
-  </ul>
-</nav>
-
 <header>
+  <div class="burger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
   <h1>eZbita.pl</h1>
-  <p>Szybko, profesjonalnie i z gwarancją!</p>
+  <p>Naprawiamy telefony od ponad 10 lat!</p>
+  <nav id="nav">
+    <a href="#about">O nas</a>
+    <a href="#services">Usługi</a>
+    <a href="#cennik">Cennik</a>
+    <a href="#opinie">Opinie</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
   <div class="phone-number">
     <i class="fas fa-phone"></i>
     <a href="tel:+48573682168">+48 573 682 168</a>
   </div>
 </header>
 
-<section id="about" style="background: #ffffff;">
+<section id="about">
   <h2>O nas</h2>
-  <p>Od ponad 10 lat zajmujemy się profesjonalną naprawą telefonów komórkowych. Nasz zespół to doświadczeni specjaliści, dla których liczy się jakość, szybkość i zadowolenie klienta. Powierz swój sprzęt w ręce ekspertów!</p>
+  <p>Jesteśmy zespołem profesjonalistów z ponad 10-letnim doświadczeniem w naprawie urządzeń mobilnych. Gwarantujemy szybką, rzetelną i profesjonalną obsługę!</p>
 </section>
 
 <section id="services" class="services">
   <div class="service">
     <i class="fas fa-mobile-alt"></i>
     <h3>Naprawa telefonów</h3>
-    <p>Wymiana ekranu, baterii, złączy i wiele więcej</p>
+    <p>Wymiana ekranu, baterii, złączy i wiele więcej.</p>
   </div>
   <div class="service">
     <i class="fas fa-tablet-alt"></i>
     <h3>Naprawa tabletów</h3>
-    <p>Profesjonalna naprawa wszystkich modeli</p>
+    <p>Profesjonalna naprawa wszystkich modeli.</p>
   </div>
   <div class="service">
     <i class="fas fa-laptop"></i>
     <h3>Naprawa laptopów</h3>
-    <p>Diagnostyka, czyszczenie, wymiana podzespołów</p>
+    <p>Diagnostyka, czyszczenie, wymiana podzespołów.</p>
   </div>
   <div class="service">
     <i class="fas fa-tools"></i>
     <h3>Wymiana szybki</h3>
-    <p>Szybka wymiana pękniętej lub rozbitej szybki w telefonie</p>
+    <p>Szybka wymiana pękniętej szybki w telefonie.</p>
   </div>
 </section>
 
-<section id="reviews" style="background: #f9f9f9;">
-  <h2>Opinie klientów</h2>
-  <p>⭐⭐⭐⭐⭐ "Profesjonalna obsługa i szybka naprawa. Gorąco polecam!"</p>
-  <p>⭐⭐⭐⭐⭐ "Telefon wygląda jak nowy! Dziękuję za świetną robotę."</p>
-  <p>⭐⭐⭐⭐⭐ "Świetny kontakt i ekspresowa realizacja. Na pewno wrócę w razie potrzeby."</p>
+<section id="cennik" class="cennik">
+  <div class="price-item">
+    <h3>Wymiana szybki</h3>
+    <p>od 150 zł</p>
+  </div>
+  <div class="price-item">
+    <h3>Wymiana baterii</h3>
+    <p>od 120 zł</p>
+  </div>
 </section>
 
-<section id="pricing" style="background: #ffffff;">
-  <h2>Cennik</h2>
-  <ul>
-    <li>• Wymiana szybki: od 150 zł</li>
-    <li>• Wymiana baterii: od 120 zł</li>
-  </ul>
+<section id="opinie" class="opinie">
+  <div class="opinia">
+    ⭐⭐⭐⭐⭐<br>
+    "Szybka i profesjonalna obsługa. Telefon wygląda jak nowy!"
+  </div>
+  <div class="opinia">
+    ⭐⭐⭐⭐⭐<br>
+    "Bardzo miła obsługa i konkurencyjne ceny. Polecam każdemu!"
+  </div>
 </section>
 
-<section id="contact" style="background: #f9f9f9;">
+<section id="kontakt" style="background: #ffffff;">
   <h2>Kontakt</h2>
-  <p>Masz pytania? Skontaktuj się z nami!</p>
-  <div class="phone-number">
-    <i class="fas fa-phone"></i>
-    <a href="tel:+48573682168">+48 573 682 168</a>
-  </div>
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.7516012597776!2d21.01222831579957!3d52.229675979757845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669fa2ff4f%3A0x43d13d4f9a6b0a4f!2sWarszawa%2C%20Orzycka%206!5e0!3m2!1spl!2spl!4v1616611729935!5m2!1spl!2spl" 
-    allowfullscreen="" loading="lazy"></iframe>
-  <div style="margin-top: 20px; font-size: 16px;">
-    <strong>Godziny pracy:</strong><br>
-    Pon–Pt: 10:00 – 19:00<br>
-    Sobota: 10:00 – 16:00<br>
-    Niedziela: zamknięte
-  </div>
+  <p><strong>Adres:</strong> Warszawa, ul. Orzycka 6</p>
+  <p><strong>Telefon:</strong> <a href="tel:+48573682168">+48 573 682 168</a></p>
+  <p><strong>Email:</strong> mik_up24@icloud.com</p>
 </section>
+
+<iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.7516012597776!2d21.01222831579957!3d52.229675979757845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669fa2ff4f%3A0x43d13d4f9a6b0a4f!2sWarszawa%2C%20Orzycka%206!5e0!3m2!1spl!2spl!4v1616611729935!5m2!1spl!2spl"
+  loading="lazy" allowfullscreen></iframe>
 
 <a class="whatsapp" href="https://wa.me/48573682168" target="_blank" title="Napisz do nas na WhatsApp">
   <i class="fab fa-whatsapp"></i>
@@ -235,6 +248,23 @@
     </a>
   </div>
 </footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('nav').classList.toggle('active');
+  }
+  
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('section').forEach(sec => {
+      const top = window.scrollY;
+      const offset = sec.offsetTop - 300;
+      const height = sec.offsetHeight;
+      if (top > offset && top < offset + height) {
+        sec.classList.add('visible');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
