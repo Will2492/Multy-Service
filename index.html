@@ -3,122 +3,207 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>eZbita.pl – Naprawa telefonów Warszawa</title>
-  <meta name="description" content="eZbita.pl - Profesjonalny serwis urządzeń mobilnych. Naprawa telefonów, wymiana wyświetlacza, baterii i więcej w Warszawie." />
-  <meta name="keywords" content="Naprawa telefonów Warszawa, serwis telefonów, wymiana szybki, naprawa laptopów" />
+  <title>eZbita.pl – Serwis urządzeń mobilnych</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Основные стили */
     body {
-      font-family: 'Poppins', Arial, sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background: #f5f5f5;
       color: #333;
-      scroll-behavior: smooth;
     }
+
     header {
       background: #2c3e50;
       color: #fff;
-      padding: 20px 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      padding: 20px;
+      text-align: center;
+      position: relative;
     }
-    .logo {
-      font-size: 26px;
-      font-weight: 600;
-    }
+
     nav {
       display: flex;
+      justify-content: center;
       gap: 20px;
+      margin-top: 10px;
+      flex-wrap: wrap;
     }
+
     nav a {
       color: #fff;
       text-decoration: none;
-      font-weight: 500;
+      font-size: 18px;
       transition: color 0.3s;
     }
+
     nav a:hover {
       color: #1abc9c;
     }
+
+    .phone-number {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .phone-number a {
+      color: #1abc9c;
+      text-decoration: none;
+    }
+
     section {
       padding: 60px 20px;
       text-align: center;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    /* О нас */
+    #about {
+      background: #ffffff;
     }
-    .services, .pricing {
+
+    /* Услуги */
+    .services {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 20px;
       background: #fff;
     }
-    .service, .price-item {
+
+    .service {
       background: #ecf0f1;
-      padding: 20px;
+      padding: 30px;
       border-radius: 8px;
       width: 250px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       transition: transform 0.3s;
       cursor: pointer;
     }
-    .service:hover, .price-item:hover {
+
+    .service:hover {
       transform: translateY(-5px);
     }
+
     .service i {
-      font-size: 40px;
+      font-size: 50px;
       color: #2980b9;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: 0;
+
+    /* Прайс */
+    .prices {
+      background: #ffffff;
+    }
+
+    .price-list {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .price-list h3 {
+      text-align: center;
+    }
+
+    .price-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .price-list li {
+      background: #ecf0f1;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+    }
+
+    /* Отзывы */
+    .reviews {
+      background: #f9f9f9;
+    }
+
+    .review {
+      max-width: 500px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: left;
+      position: relative;
+    }
+
+    .review img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      position: absolute;
+      top: -25px;
+      left: 20px;
+      border: 2px solid #1abc9c;
+    }
+
+    .review p {
       margin-top: 30px;
     }
-    .back-to-top {
+
+    /* Кнопка наверх */
+    #scrollToTopBtn {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #1abc9c;
+      bottom: 40px;
+      right: 30px;
+      z-index: 100;
+      background-color: #1abc9c;
       color: white;
       border: none;
+      outline: none;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      padding: 15px;
       font-size: 24px;
       cursor: pointer;
       display: none;
-      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.3s;
     }
+
+    #scrollToTopBtn:hover {
+      background-color: #16a085;
+    }
+
     footer {
-      text-align: center;
-      padding: 20px;
       background: #2c3e50;
       color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
     }
+
     footer a {
       color: #fff;
       margin: 0 10px;
       font-size: 20px;
       text-decoration: none;
     }
+
     footer a:hover {
       color: #1abc9c;
     }
+
+    /* Адаптивность */
     @media (max-width: 768px) {
-      nav {
+      .services {
         flex-direction: column;
         align-items: center;
       }
-      header {
+
+      nav {
         flex-direction: column;
       }
     }
@@ -128,101 +213,110 @@
 <body>
 
 <header>
-  <div class="logo">eZbita.pl</div>
+  <h1>eZbita.pl</h1>
+  <div class="phone-number">
+    <i class="fas fa-phone"></i>
+    <a href="tel:+48573682168">+48 573 682 168</a>
+  </div>
   <nav>
-    <a href="#about">O Nas</a>
+    <a href="#about">O nas</a>
     <a href="#services">Usługi</a>
-    <a href="#pricing">Cennik</a>
+    <a href="#prices">Cennik</a>
     <a href="#reviews">Opinie</a>
   </nav>
 </header>
 
 <section id="about">
-  <h2>O Nas</h2>
-  <p>Jesteśmy zespołem specjalistów z ponad 10-letnim doświadczeniem. Naprawiamy telefony szybko, profesjonalnie i z gwarancją jakości.</p>
+  <h2>O nas</h2>
+  <p>Mamy ponad 10 lat doświadczenia w naprawie telefonów komórkowych, tabletów i laptopów. Szybko, profesjonalnie i z gwarancją!</p>
 </section>
 
 <section id="services" class="services">
-  <div class="service" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'});">
+  <div class="service" onclick="location.href='#prices'">
     <i class="fas fa-mobile-alt"></i>
     <h3>Naprawa telefonów</h3>
+    <p>Wymiana ekranu, baterii, złączy i wiele więcej.</p>
   </div>
-  <div class="service" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'});">
+  <div class="service" onclick="location.href='#prices'">
     <i class="fas fa-tablet-alt"></i>
     <h3>Naprawa tabletów</h3>
+    <p>Profesjonalna naprawa wszystkich modeli.</p>
   </div>
-  <div class="service" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'});">
+  <div class="service" onclick="location.href='#prices'">
     <i class="fas fa-laptop"></i>
     <h3>Naprawa laptopów</h3>
+    <p>Diagnostyka, czyszczenie, wymiana podzespołów.</p>
   </div>
 </section>
 
-<section id="pricing" class="pricing">
+<section id="prices" class="prices">
   <h2>Cennik</h2>
-  <div class="price-item">
-    <h4>Wymiana szybki</h4>
-    <p>od 150 zł</p>
-  </div>
-  <div class="price-item">
-    <h4>Wymiana baterii</h4>
-    <p>od 120 zł</p>
-  </div>
-  <div class="price-item">
-    <h4>Wymiana wyświetlacza</h4>
-    <p>od 100 zł</p>
-  </div>
-  <div class="price-item">
-    <h4>Wymiana gniazda ładowania</h4>
-    <p>od 50 zł</p>
-  </div>
-  <div class="price-item">
-    <h4>Wymiana głośnika / mikrofonu</h4>
-    <p>od 100 zł</p>
-  </div>
-  <div class="price-item">
-    <h4>Czyszczenie po zalaniu</h4>
-    <p>od 0 zł</p>
+  <div class="price-list">
+    <h3>Nasze ceny</h3>
+    <ul>
+      <li><span>Wymiana szybki</span><span>od 150 zł</span></li>
+      <li><span>Wymiana baterii</span><span>od 120 zł</span></li>
+      <li><span>Wymiana wyświetlacza</span><span>od 100 zł</span></li>
+      <li><span>Wymiana złącza ładowania</span><span>od 50 zł</span></li>
+      <li><span>Wymiana głośnika/mikrofonu</span><span>od 100 zł</span></li>
+      <li><span>Czyszczenie po zalaniu</span><span>od 0 zł</span></li>
+    </ul>
   </div>
 </section>
 
-<section id="reviews">
+<section id="reviews" class="reviews">
   <h2>Opinie klientów</h2>
-  <p>⭐⭐⭐⭐⭐ "Bardzo szybka naprawa! Telefon działa jak nowy."</p>
-  <p>⭐⭐⭐⭐⭐ "Profesjonalna obsługa, atrakcyjne ceny. Polecam!"</p>
-  <p>⭐⭐⭐⭐⭐ "Świetna komunikacja i fachowa pomoc. Na pewno wrócę!"</p>
-  <p>⭐⭐⭐⭐⭐ "Najlepszy serwis w Warszawie! Pełne zadowolenie."</p>
+
+  <div class="review">
+    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Klient">
+    <p>⭐⭐⭐⭐⭐ Świetna obsługa, mój telefon wygląda jak nowy! Bardzo polecam.</p>
+  </div>
+
+  <div class="review">
+    <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Klientka">
+    <p>⭐⭐⭐⭐⭐ Bardzo szybka naprawa i profesjonalna pomoc. Jestem bardzo zadowolona!</p>
+  </div>
+
+  <div class="review">
+    <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Klient">
+    <p>⭐⭐⭐⭐⭐ Zdecydowanie najlepszy serwis w Warszawie. Uratowali mój tablet.</p>
+  </div>
+
 </section>
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen="" loading="lazy"></iframe>
-
-<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
 <footer>
   <p>&copy; 2025 eZbita.pl – Wszystkie prawa zastrzeżone.</p>
   <div>
-    <a href="https://instagram.com/ezbita" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://t.me/ezbita" target="_blank"><i class="fab fa-telegram"></i></a>
-    <a href="https://wa.me/48573682168" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/ezbita" target="_blank" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://t.me/ezbita" target="_blank" title="Telegram">
+      <i class="fab fa-telegram"></i>
+    </a>
+    <a href="https://wa.me/48573682168" target="_blank" title="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
   </div>
 </footer>
 
-<script>
-  const sections = document.querySelectorAll('section');
-  const backToTop = document.querySelector('.back-to-top');
+<!-- Кнопка наверх -->
+<button id="scrollToTopBtn" title="Do góry"><i class="fas fa-arrow-up"></i></button>
 
-  window.addEventListener('scroll', () => {
-    sections.forEach(sec => {
-      const rect = sec.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        sec.classList.add('visible');
-      }
-    });
-    if (window.scrollY > 300) {
-      backToTop.style.display = 'block';
-    } else {
-      backToTop.style.display = 'none';
-    }
-  });
+<!-- Скрипт для кнопки наверх -->
+<script>
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    scrollToTopBtn.style.display = 'flex';
+  } else {
+    scrollToTopBtn.style.display = 'none';
+  }
+});
+
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 </script>
 
 </body>
