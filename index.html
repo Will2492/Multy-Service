@@ -3,103 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>eZbita.pl – Serwis urządzeń mobilnych</title>
+  <title>eZbita.pl – Naprawa telefonów Warszawa</title>
+  <meta name="description" content="eZbita.pl - Profesjonalny serwis urządzeń mobilnych. Naprawa telefonów, wymiana wyświetlacza, baterii i więcej w Warszawie." />
+  <meta name="keywords" content="Naprawa telefonów Warszawa, serwis telefonów, wymiana szybki, naprawa laptopów" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', Arial, sans-serif;
       margin: 0;
       padding: 0;
       background: #f5f5f5;
       color: #333;
+      scroll-behavior: smooth;
     }
     header {
       background: #2c3e50;
       color: #fff;
-      padding: 15px 20px;
+      padding: 20px 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
     .logo {
-      font-size: 28px;
-      font-weight: bold;
-    }
-    .special-offer {
-      background: #1abc9c;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      font-size: 18px;
+      font-size: 26px;
+      font-weight: 600;
     }
     nav {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background: #2c3e50;
-      padding: 10px;
+      gap: 20px;
     }
     nav a {
       color: #fff;
-      margin: 0 15px;
       text-decoration: none;
-      font-size: 18px;
+      font-weight: 500;
       transition: color 0.3s;
     }
     nav a:hover {
       color: #1abc9c;
     }
     section {
-      padding: 50px 20px;
+      padding: 60px 20px;
       text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
-    .services {
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .services, .pricing {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
       background: #fff;
     }
-    .service {
+    .service, .price-item {
       background: #ecf0f1;
-      margin: 15px;
-      padding: 30px;
+      padding: 20px;
       border-radius: 8px;
-      text-align: center;
       width: 250px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      cursor: pointer;
       transition: transform 0.3s;
+      cursor: pointer;
     }
-    .service:hover {
-      transform: scale(1.05);
+    .service:hover, .price-item:hover {
+      transform: translateY(-5px);
     }
     .service i {
-      font-size: 50px;
+      font-size: 40px;
       color: #2980b9;
-      margin-bottom: 15px;
-    }
-    .price-list {
-      background: #fff;
-    }
-    .price-item {
-      margin: 10px 0;
-      font-size: 18px;
-    }
-    .reviews p {
-      background: #ecf0f1;
-      margin: 10px auto;
-      padding: 15px;
-      border-radius: 8px;
-      max-width: 500px;
-    }
-    .contact {
-      background: #fff;
-      padding: 40px 20px;
-      text-align: center;
+      margin-bottom: 10px;
     }
     iframe {
       width: 100%;
@@ -107,21 +84,19 @@
       border: 0;
       margin-top: 30px;
     }
-    .whatsapp {
+    .back-to-top {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #25D366;
+      background: #1abc9c;
       color: white;
+      border: none;
       border-radius: 50%;
       padding: 15px;
-      font-size: 28px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      text-align: center;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
       z-index: 1000;
-    }
-    .whatsapp:hover {
-      background: #20b858;
     }
     footer {
       text-align: center;
@@ -139,104 +114,116 @@
       color: #1abc9c;
     }
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-      .services {
+      nav {
         flex-direction: column;
         align-items: center;
+      }
+      header {
+        flex-direction: column;
       }
     }
   </style>
 </head>
+
 <body>
 
 <header>
   <div class="logo">eZbita.pl</div>
-  <div>Serwis urządzeń</div>
+  <nav>
+    <a href="#about">O Nas</a>
+    <a href="#services">Usługi</a>
+    <a href="#pricing">Cennik</a>
+    <a href="#reviews">Opinie</a>
+  </nav>
 </header>
 
-<div class="special-offer">
-  Specjalna Oferta! -20% na wymianę szybki do końca miesiąca!
-</div>
-
-<nav>
-  <a href="#about">O nas</a>
-  <a href="#services">Usługi</a>
-  <a href="#price-list">Cennik</a>
-  <a href="#reviews">Opinie</a>
-</nav>
-
 <section id="about">
-  <h2>O nas</h2>
-  <p>Mamy ponad 10 lat doświadczenia w naprawie telefonów. Profesjonalizm, szybkość i jakość to nasze priorytety!</p>
+  <h2>O Nas</h2>
+  <p>Jesteśmy zespołem specjalistów z ponad 10-letnim doświadczeniem. Naprawiamy telefony szybko, profesjonalnie i z gwarancją jakości.</p>
 </section>
 
 <section id="services" class="services">
-  <div class="service" onclick="document.getElementById('price-list').scrollIntoView({behavior:'smooth'})">
+  <div class="service" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'});">
     <i class="fas fa-mobile-alt"></i>
     <h3>Naprawa telefonów</h3>
-    <p>Wymiana ekranu, baterii, złączy i więcej</p>
   </div>
-  <div class="service" onclick="document.getElementById('price-list').scrollIntoView({behavior:'smooth'})">
+  <div class="service" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'});">
     <i class="fas fa-tablet-alt"></i>
     <h3>Naprawa tabletów</h3>
-    <p>Profesjonalna naprawa wszystkich modeli</p>
   </div>
-  <div class="service" onclick="document.getElementById('price-list').scrollIntoView({behavior:'smooth'})">
+  <div class="service" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'});">
     <i class="fas fa-laptop"></i>
     <h3>Naprawa laptopów</h3>
-    <p>Diagnostyka, czyszczenie, wymiana podzespołów</p>
-  </div>
-  <div class="service" onclick="document.getElementById('price-list').scrollIntoView({behavior:'smooth'})">
-    <i class="fas fa-tools"></i>
-    <h3>Wymiana szybki</h3>
-    <p>Szybka wymiana pękniętej szybki w telefonie</p>
   </div>
 </section>
 
-<section id="price-list" class="price-list">
+<section id="pricing" class="pricing">
   <h2>Cennik</h2>
-  <div class="price-item">Wymiana szybki: od 150 zł</div>
-  <div class="price-item">Wymiana baterii: od 120 zł</div>
-  <div class="price-item">Wymiana wyświetlacza: od 100 zł</div>
-  <div class="price-item">Wymiana gniazda ładowania: od 50 zł</div>
-  <div class="price-item">Wymiana głośnika / mikrofonu: od 100 zł</div>
-  <div class="price-item">Czyszczenie po zalaniu: od 0 zł</div>
+  <div class="price-item">
+    <h4>Wymiana szybki</h4>
+    <p>od 150 zł</p>
+  </div>
+  <div class="price-item">
+    <h4>Wymiana baterii</h4>
+    <p>od 120 zł</p>
+  </div>
+  <div class="price-item">
+    <h4>Wymiana wyświetlacza</h4>
+    <p>od 100 zł</p>
+  </div>
+  <div class="price-item">
+    <h4>Wymiana gniazda ładowania</h4>
+    <p>od 50 zł</p>
+  </div>
+  <div class="price-item">
+    <h4>Wymiana głośnika / mikrofonu</h4>
+    <p>od 100 zł</p>
+  </div>
+  <div class="price-item">
+    <h4>Czyszczenie po zalaniu</h4>
+    <p>od 0 zł</p>
+  </div>
 </section>
 
-<section id="reviews" class="reviews">
+<section id="reviews">
   <h2>Opinie klientów</h2>
-  <p>⭐⭐⭐⭐⭐ Szybko i profesjonalnie naprawili mój telefon!</p>
-  <p>⭐⭐⭐⭐⭐ Świetna obsługa, polecam każdemu!</p>
-  <p>⭐⭐⭐⭐⭐ Wymiana ekranu w 1 godzinę, super!</p>
-  <p>⭐⭐⭐⭐⭐ Bardzo szybka naprawa, polecam!</p>
-  <p>⭐⭐⭐⭐⭐ Profesjonalna obsługa i miła atmosfera.</p>
-  <p>⭐⭐⭐⭐⭐ Telefon wygląda jak nowy po naprawie!</p>
+  <p>⭐⭐⭐⭐⭐ "Bardzo szybka naprawa! Telefon działa jak nowy."</p>
+  <p>⭐⭐⭐⭐⭐ "Profesjonalna obsługa, atrakcyjne ceny. Polecam!"</p>
+  <p>⭐⭐⭐⭐⭐ "Świetna komunikacja i fachowa pomoc. Na pewno wrócę!"</p>
+  <p>⭐⭐⭐⭐⭐ "Najlepszy serwis w Warszawie! Pełne zadowolenie."</p>
 </section>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.7516012597776!2d21.01222831579957!3d52.229675979757845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669fa2ff4f%3A0x43d13d4f9a6b0a4f!2sWarszawa%2C%20Orzycka%206!5e0!3m2!1spl!2spl!4v1616611729935!5m2!1spl!2spl" allowfullscreen="" loading="lazy"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen="" loading="lazy"></iframe>
 
-<div class="contact">
-  <strong>Godziny pracy:</strong><br>
-  Pon–Pt: 10:00 – 19:00<br>
-  Sobota: 10:00 – 16:00<br>
-  Niedziela: zamknięte
-</div>
-
-<a class="whatsapp" href="https://wa.me/48573682168" target="_blank" title="Napisz do nas na WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
 <footer>
   <p>&copy; 2025 eZbita.pl – Wszystkie prawa zastrzeżone.</p>
   <div>
-    <a href="https://instagram.com/ezbita" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://t.me/ezbita" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
-    <a href="https://wa.me/48573682168" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/ezbita" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://t.me/ezbita" target="_blank"><i class="fab fa-telegram"></i></a>
+    <a href="https://wa.me/48573682168" target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 </footer>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const backToTop = document.querySelector('.back-to-top');
+
+  window.addEventListener('scroll', () => {
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        sec.classList.add('visible');
+      }
+    });
+    if (window.scrollY > 300) {
+      backToTop.style.display = 'block';
+    } else {
+      backToTop.style.display = 'none';
+    }
+  });
+</script>
 
 </body>
 </html>
