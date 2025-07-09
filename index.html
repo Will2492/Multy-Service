@@ -3,157 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>eZbita.pl – Serwis urządzeń mobilnych</title>
-
-  <meta name="description" content="Profesjonalny serwis urządzeń mobilnych w Warszawie. Naprawa telefonów, tabletów i laptopów szybko, skutecznie i w dobrej cenie.">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "eZbita.pl",
-    "url": "https://ezbita.pl/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://ezbita.pl/?s={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "eZbita.pl",
-    "url": "https://ezbita.pl/",
-    "logo": "https://ezbita.pl/logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+48-573-682-168",
-      "contactType": "customer support",
-      "areaServed": "PL",
-      "availableLanguage": "pl"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Orzycka 6",
-      "addressLocality": "Warszawa",
-      "postalCode": "02-695",
-      "addressCountry": "PL"
-    }
-  }
-  </script>
-
+  <title>Naprawa Smartfonów - Multy.pl</title>
+  <meta name="description" content="Profesjonalna naprawa telefonów z gwarancją. Szybko, bezpłatna diagnoza, ekspresowy serwis.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
-    header { background: #2c3e50; color: #fff; padding: 10px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-    .logo { font-size: 24px; font-weight: bold; }
-    .phone-number { font-size: 18px; color: #1abc9c; }
-    nav { flex-basis: 100%; display: flex; justify-content: center; margin-top: 10px; }
-    nav a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 18px; position: relative; }
-    nav a::after { content: ''; display: block; width: 0; height: 2px; background: #1abc9c; transition: width .3s; margin: auto; }
-    nav a:hover::after { width: 100%; }
-    section { padding: 60px 20px; text-align: center; }
-    .services, .pricing, .reviews { background: #fff; margin: 20px auto; padding: 40px 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); max-width: 1200px; }
-    .service-list, .price-list, .review-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px; }
-    .service-item, .price-item, .review-item { background: #ecf0f1; padding: 20px; border-radius: 8px; width: 250px; text-align: center; }
-    .service-item i, .price-item i { font-size: 50px; margin-bottom: 10px; color: #2980b9; }
-    iframe { width: 100%; height: 300px; border: 0; margin-top: 30px; }
-    .whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border-radius: 50%; padding: 15px; font-size: 28px; box-shadow: 0 2px 10px rgba(0,0,0,0.3); z-index: 1000; }
-    .whatsapp:hover { background: #20b858; }
-    footer { text-align: center; padding: 20px; background: #2c3e50; color: #fff; }
-    footer a { color: #fff; margin: 0 10px; font-size: 20px; text-decoration: none; }
-    footer a:hover { color: #1abc9c; }
-    @media (max-width: 768px) {
-      nav a { margin: 10px; }
-      .service-item, .price-item, .review-item { width: 100%; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #0077cc;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .cta {
+      background-color: #f1f1f1;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    .cta a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    footer {
+      background-color: #eee;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
     }
   </style>
 </head>
-
 <body>
+  <header>
+    <h1>Naprawa smartfonów</h1>
+    <p>Szybko. Profesjonalnie. Z gwarancją.</p>
+  </header>
 
-<header>
-  <div class="logo">eZbita.pl</div>
-  <div class="phone-number"><i class="fas fa-phone"></i> <a href="tel:+48573682168" style="color:#1abc9c;">+48 573 682 168</a></div>
-  <nav>
-    <a href="#onas">O Nas</a>
-    <a href="#uslugi">Usługi</a>
-    <a href="#cennik">Cennik</a>
-    <a href="#opinie">Opinie</a>
-  </nav>
-</header>
+  <main>
+    <h2>Nasze usługi:</h2>
+    <ul>
+      <li>Wymiana zbitej szybki</li>
+      <li>Wymiana baterii</li>
+      <li>Naprawa gniazda ładowania</li>
+      <li>Czyszczenie po zalaniu</li>
+      <li>Odzyskiwanie danych</li>
+      <li>Bezpłatna diagnoza usterki</li>
+    </ul>
 
-<section id="onas">
-  <h2>O Nas</h2>
-  <p>Już ponad 10 lat specjalizujemy się w naprawie urządzeń mobilnych. Zaufaj profesjonalistom!</p>
-</section>
+    <h2>Dlaczego warto?</h2>
+    <ul>
+      <li>12 miesięcy gwarancji na każdą naprawę</li>
+      <li>Ekspresowy serwis – nawet w 30 minut</li>
+      <li>Dojazd na terenie Warszawy i okolic</li>
+      <li>Profesjonalni technicy</li>
+    </ul>
 
-<section id="uslugi" class="services">
-  <h2>Usługi</h2>
-  <div class="service-list">
-    <div class="service-item"><i class="fas fa-mobile-alt"></i><h3>Naprawa Telefonów</h3><p>Wymiana wyświetlaczy, baterii i naprawа usterek.</p></div>
-    <div class="service-item"><i class="fas fa-tablet-alt"></i><h3>Naprawа Tabletów</h3><p>Profesjonalna naprawа wszystkich modeli tabletów.</p></div>
-    <div class="service-item"><i class="fas fa-laptop"></i><h3>Naprawа Laptopów</h3><p>Diagnoza, czyszczenie i wymiana komponentów.</p></div>
-  </div>
-</section>
+    <div class="cta">
+      <h2>Potrzebujesz naprawy?</h2>
+      <p>Skontaktuj się z nami:</p>
+      <a href="tel:+48XXXXXXXXX">📞 Zadzwoń teraz</a>
+      <a href="https://wa.me/48XXXXXXXXX">💬 Napisz na WhatsApp</a>
+    </div>
 
-<section id="cennik" class="pricing">
-  <h2>Cennik</h2>
-  <div class="price-list">
-    <div class="price-item"><i class="fas fa-mobile"></i><h3>Wymiana szybki</h3><p>od 150 zł</p></div>
-    <div class="price-item"><i class="fas fa-battery-half"></i><h3>Wymiana baterii</h3><p>od 120 zł</p></div>
-    <div class="price-item"><i class="fas fa-charging-station"></i><h3>Wymiana gniazda ładowania</h3><p>od 50 zł</p></div>
-    <div class="price-item"><i class="fas fa-volume-up"></i><h3>Wymiana głośnika / mikrofonu</h3><p>od 100 zł</p></div>
-    <div class="price-item"><i class="fas fa-water"></i><h3>Czyszczenie po zalaniu</h3><p>od 0 zł</p></div>
-  </div>
-</section>
+    <h2>Formularz kontaktowy:</h2>
+    <form method="POST" action="mailto:twój@email.pl">
+      <input type="text" name="name" placeholder="Twoje imię" required>
+      <input type="tel" name="phone" placeholder="Numer telefonu" required>
+      <textarea name="message" rows="4" placeholder="Opisz problem" required></textarea>
+      <button type="submit">Wyślij</button>
+    </form>
+  </main>
 
-<section id="opinie" class="reviews">
-  <h2>Opinie klientów</h2>
-  <div class="review-list">
-    <div class="review-item"><img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Klient" style="width:60px;height:60px;border-radius:50%;margin-bottom:10px;"><p>⭐⭐⭐⭐⭐ Świetna obsługa i szybka naprawа. Polecam!</p></div>
-    <div class="review-item"><img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Klientka" style="width:60px;height:60px;border-radius:50%;margin-bottom:10px;"><p>⭐⭐⭐⭐⭐ Profesjonalnie i sprawnie, jestem bardzo zadowolona.</p></div>
-    <div class="review-item"><img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Klient" style="width:60px;height:60px;border-radius:50%;margin-bottom:10px;"><p>⭐⭐⭐⭐⭐ Polecam każdemу kto potrzebuje szybkiej naprawы telefonu.</p></div>
-  </div>
-</section>
-
-<!-- Карта Google исправленная -->
-<iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2440.519877657336!2d21.018635315795787!3d52.17441097975281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecbdb2aa77b87%3A0x9b1c81d29c7ecf1f!2sOrzycka%206%2C%2002-695%20Warszawa%2C%20Polska!5e0!3m2!1spl!2spl!4v1714736011111!5m2!1spl!2spl"
-  width="100%"
-  height="300"
-  style="border:0;"
-  allowfullscreen=""
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade"
-  title="Lokalizacja biura Orzycka 6">
-</iframe>
-
-<a class="whatsapp" href="https://wa.me/48573682168" target="_blank" title="Napisz do nas na WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<footer>
-  <p>&copy; 2025 eZbita.pl – Wszystkie prawa zastrzeżone. <a href="blog/jak-dbac-o-wyswietlacz.html">Przeczytaj artykuły.</a></p>
-     
-    </article>
-    <!-- больше статей -->
-  </div>
-</section> </p>
-  <div>
-    <a href="https://instagram.com/ezbita" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://t.me/ezbita" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
-    <a href="https://wa.me/48573682168" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-  </div>
-</footer>
-
-<!-- FontAwesome для иконок подключен в конце -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-
+  <footer>
+    © 2025 Multy.pl | <a href="/polityka-prywatnosci">Polityka prywatności</a><br>
+    NIP: 0000000000 | Adres: Warszawa, Polska
+  </footer>
 </body>
 </html>
-google-site-verification: google56eff5fd6de6400b.html
