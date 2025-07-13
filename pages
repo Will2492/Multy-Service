@@ -1,1 +1,3 @@
-
+git add public/google56eff5fd6de6400b.html
+git commit -m "Add Google Search Console verification file"
+git push
