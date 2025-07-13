@@ -215,6 +215,42 @@
 
 <!-- FontAwesome для иконок подключен в конце -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<!-- Баннер cookies -->
+<div id="cookie-banner" style="position:fixed;bottom:0;left:0;width:100%;background:#2c3e50;color:#fff;padding:20px;text-align:center;z-index:9999;">
+  Ta strona używa plików cookies. <a href="/polityka-prywatnosci.html" style="color:#1abc9c;">Dowiedz się więcej</a>.
+  <button id="accept-cookies" style="margin-left:10px;padding:8px 15px;background:#1abc9c;color:#fff;border:none;cursor:pointer;">
+    Akceptuję
+  </button>
+</div>
 
+<script>
+  document.getElementById('accept-cookies').addEventListener('click', function() {
+    // Сохраняем согласие в localStorage
+    localStorage.setItem('cookies_accepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+    loadTrackingScripts();
+  });
+
+  // Если пользователь уже согласился — сразу грузим скрипты
+  if (localStorage.getItem('cookies_accepted') === 'true') {
+    document.getElementById('cookie-banner').style.display = 'none';
+    loadTrackingScripts();
+  }
+
+  function loadTrackingScripts() {
+    // Загрузка Google Tag Manager или Google Analytics
+    var gtagScript = document.createElement('script');
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17335505135';
+    gtagScript.async = true;
+    document.head.appendChild(gtagScript);
+
+    gtagScript.onload = function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17335505135');
+    };
+  }
+</script>
 </body>
 </html>
